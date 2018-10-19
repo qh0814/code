@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style type="text/css">
-  /* 用border-radius:50%画圆，共5个圆，再进行绝对定位 */
+  /* 利用伪元素可省略部分元素，加上较宽的border */
   body{
     background:#666;
   }
@@ -18,52 +18,47 @@
     #000000 50%,#000000 100%);
     position:relative;
     margin:100px auto;
+    animation-duration:3s;
+    animation-name:spin;
+    animation-iteration-count: infinite;/*无限重复进行*/
+    animation-timing-function: linear;/*线性*/
   }
-  .yinyang > .one{
-    width:100px;
-    height:100px;
+  .yinyang::before{
+    content:'';
+    width:20px;
+    height:20px;
     border-radius:50%;
-    background:#000000;
+    background:white;
     position:absolute;
     top:50px;
     left:0;
+    border:40px solid black;
   }
-  .yinyang > .two{
-    width:100px;
-    height:100px;
+  .yinyang::after{
+    content:'';
+    width:20px;
+    height:20px;
     border-radius:50%;
-    background:#ffffff;
+    background:black;
     position:absolute;
     top:50px;
     right:0;
+    border:40px solid white;
   }
-  .one > .circle{
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    position:absolute;
-    left:40px;
-    top:40px;
-    background:#ffffff;
-  }
-  .two > .circle{
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    position:absolute;
-    left:40px;
-    top:40px;
-    background:#000000;
+  @keyframes spin{
+    from{
+      transform:rotate(0deg);
+    }
+    to{
+      transform:rotate(360deg);
+
+    }
   }
   </style>
 </head>
 <body>
   <div class="yinyang">
-    <div class="one">
-      <div class="circle"></div>
-    </div>
-    <div class="two">
-      <div class="circle"></div>
+    
     </div>
   </div>
 </body>
