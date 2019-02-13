@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href='./style.css'>
+</head>
+<body>
+  <canvas id='canvas' width=300 height=300></canvas>
+  <div id='tools' class='tools'>
+    <button id='eraser'>橡皮擦</button>
+    <button id='brush'>画笔</button>
+  </div>
+</body>
+</html>
+<script>
+var canvas = document.getElementById('canvas')//为canvas元素得到DOM对象
+if(canvas.getContext){//检查canvas的支持性
+  resizeCanvas()
+  var ctx = canvas.getContext('2d')//获得2D的渲染上下文
+  var toolUsing = false//使用画笔或橡皮的开关
+  var eraserUsing = false//橡皮使用开关
+  var lastPoint = {X:undefined,Y:undefined}/*当鼠标移动较快时，浏览器监听响应跟不上，
+  为了能画出连续的图形，这里记录上一个点*/
+
+  eraser.onclick = function(){
+    eraserUsing = true
+    // console.log(eraserUsing)
+    tools.className = 'tools x'
+  }
+  brush.onclick = function(){
+    eraserUsing = false
+    tools.className = 'tools'
+  }
+  window.onresize = function(){//监听窗口大小改变
+    resizeCanvas()
+  }
+  canvas.onmousedown = function(MSdown){
+    var x = MSdown.clientX
+    var y = MSdown.clientY
+    toolUsing = true
+    if(eraserUsing){
+      ctx.clearRect(x-5,y-5,10,10)//擦除当前点
+    }else{
+    lastPoint = {X:x,Y:y}
+    drawCircle(x,y,3)
+    }
+  }
+  canvas.onmousemove = function (MSmove) {
+    var x = MSmove.clientX
+    var y = MSmove.clientY
+    if (toolUsing) {
+      if (eraserUsing) {
+        ctx.clearRect(x - 5, y - 5, 10, 10)
+      } else {
+        var newPoint = { X: x, Y: y }//每次移动鼠标后记录新的点
+        console.log(lastPoint)
+        drawLine(lastPoint.X, lastPoint.Y, newPoint.X, newPoint.Y)//在上个点和这次移动后新的点之间画线
+        lastPoint = newPoint//画线完毕后更新这次移动的点为lastPoint
+        //hash之间互相赋值需要里面的键相同
+      }
+    }
+  }
+  canvas.onmouseup = function(){
+    toolUsing = !toolUsing
+  }
+  function resizeCanvas(){//改变canvas画板大小
+    var pageWidth = document.documentElement.clientWidth//获取页面宽
+    var pageHeight = document.documentElement.clientHeight
+    canvas.width = pageWidth
+    canvas.height = pageHeight
+  }
+  function drawCircle(x,y,radius){//根据圆心xy坐标和半径画圆
+    ctx.beginPath()//新建路径
+    ctx.fillstyle = 'black'
+    ctx.arc(x,y,radius,0,Math.PI*2)//arc函数中角的单位是弧度（Math.PI/180）*角度
+    ctx.fill()//调用fill函数会让没有闭合的形状自动闭合，所以不需要再使用closePath函数
+  }  
+  function drawLine(x1,y1,x2,y2){
+    ctx.beginPath()
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(x1,y1)//画笔初始点
+    ctx.lineWidth = 5//线的宽度
+    ctx.lineTo(x2,y2)//画笔终止点
+    ctx.stroke()//描边
+    ctx.closePath()
+  }
+}else{
+  console.log('canvas is nonsupport')//不支持canvas的操作
+}
+</script>

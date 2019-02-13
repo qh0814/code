@@ -1,0 +1,21 @@
+body{
+  margin:0px;/**获取到的clientX和Y是相对于视口的坐标，
+  所以这里清除外边距，从而画的图形不会有坐标偏差**/
+}
+#canvas{
+  background:gray;
+}
+.tools{
+  position:fixed;
+  left:0;
+  bottom:0;
+}
+.tools > #brush{
+  display:none;
+}
+.tools.x > #brush{
+  display:inline-block;
+}
+.tools.x > #eraser{
+  display:none;
+}
