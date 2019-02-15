@@ -1,21 +1,84 @@
-body{
+*{
   margin:0px;/**获取到的clientX和Y是相对于视口的坐标，
   所以这里清除外边距，从而画的图形不会有坐标偏差**/
+  padding:0px;
+}
+body{
+  overflow: hidden;
 }
 #canvas{
-  background:gray;
+  background:white;
+  position:fixed;/*暂时这样解决触屏设备会滚动的现象..*/
+  left:0;
+  top:0;
 }
 .tools{
   position:fixed;
   left:0;
-  bottom:0;
+  top:0;
+  padding:20px;
 }
-.tools > #brush{
-  display:none;
+.icon {
+  width: 1.5em; height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
-.tools.x > #brush{
-  display:inline-block;
+svg.active{
+  fill:lightgreen;
+  transform:scale(1.3);
+  
 }
-.tools.x > #eraser{
-  display:none;
+svg{
+  transition:all 0.3s;
+  margin:0 10px;
+}
+ol,ul{
+  list-style:none;
+}
+.colors{
+  position:fixed;
+  top:60px;
+  left:28px;/*和画笔左对齐*/
+}
+.colors li{
+  width:20px;
+  height:20px;
+  /* border:1px solid red; */
+  margin:10px 0;
+  border-radius:50%;
+  transition:all 0.3s;
+}
+.colors>li.red{
+  background:red;
+}
+.colors>li.blue{
+  background:blue;
+}
+.colors>li.green{
+  background:green;
+}
+.colors>li.black{
+  background:black;
+}
+.colors>li.active{
+  transform:scale(1.4);
+}
+.size{
+  position:fixed;
+  right:20px;
+  top:10px;
+}
+.size>.thin{
+  height:0;
+  width:20px;
+  border-top:3px solid black;
+}
+.size>.thick{
+  height:0;
+  width:20px;
+  border-top:8px solid black;
+}
+.size>li{
+  margin:20px 0;
 }
