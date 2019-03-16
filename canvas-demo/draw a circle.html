@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>div</title>
+  <style>
+  body{
+  margin:0;
+  }
+  #div{
+  background: gray;
+  height: 100vh; 
+  position: relative;
+  }
+  </style>
+</head>
+<body>
+  <div id='div'></div>
+</body>
+</html>
+<script>
+var div=document.getElementById('div')
+var painting = false//开关
+div.onmousedown=function(msDown){//监听鼠标左键按下
+  painting = true
+  var x=msDown.clientX
+  var y=msDown.clientY//获取点击坐标
+  var a=document.createElement('div')//用div来作为点击生成的图形
+  a.style='width:6px; height:6px; background:red; border-radius:3px;'+
+  'position:absolute; left:'+(x-3)+'px; top:'+(y-3)+'px;'//画出点击后图形形状,并定位到鼠标顶点。
+  div.appendChild(a)
+}
+div.onmousemove = function(msDown){//监听鼠标移动
+  if(painting){//如果鼠标移动且处于按下状态
+    var x=msDown.clientX
+    var y=msDown.clientY//获取点击坐标
+  var a=document.createElement('div')//用div来作为点击生成的图形
+  a.style='width:6px; height:6px; background:red; border-radius:3px;'+
+  'position:absolute; left:'+(x-3)+'px; top:'+(y-3)+'px;'//画出点击后图形形状,并定位到鼠标顶点。
+  div.appendChild(a)
+  }else{}//否则什么都不做
+}
+div.onmouseup = function(z){//监听鼠标弹起
+  painting = false
+}
+</script>

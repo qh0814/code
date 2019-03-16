@@ -21,6 +21,7 @@ if(canvas.getContext){//检查canvas的支持性
   }
   clear.onclick = function(){
     ctx.clearRect(0,0,canvas.width,canvas.height)
+    console.log(1)
   }
   thick.onclick = function(){
     lineWidth = 10

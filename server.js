@@ -19,7 +19,7 @@ var server = http.createServer(function(request, response){
 
 
 
-
+if true
   console.log('HTTP 路径： ' + path)
   console.log('查询字符串： ' + query)
   console.log('不含查询字符串的路径： ' + pathNoQuery)
