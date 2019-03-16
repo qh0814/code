@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+  /* 利用伪元素可省略部分元素，加上较宽的border */
+  body{
+    background:#666;
+  }
+  .yinyang{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:linear-gradient(to bottom,#ffffff 0%,#ffffff 50%,
+    #000000 50%,#000000 100%);
+    position:relative;
+    margin:100px auto;
+    animation-duration:3s;
+    animation-name:spin;
+    animation-iteration-count: infinite;/*无限重复进行*/
+    animation-timing-function: linear;/*线性*/
+  }
+  .yinyang::before{
+    content:'';
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:white;
+    position:absolute;
+    top:50px;
+    left:0;
+    border:40px solid black;
+  }
+  .yinyang::after{
+    content:'';
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:black;
+    position:absolute;
+    top:50px;
+    right:0;
+    border:40px solid white;
+  }
+  @keyframes spin{
+    from{
+      transform:rotate(0deg);
+    }
+    to{
+      transform:rotate(360deg);
+
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="yinyang">
+    
+    </div>
+  </div>
+</body>
+</html>
