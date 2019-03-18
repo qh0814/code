@@ -5,17 +5,12 @@
   <title>resume</title>
   <link rel="stylesheet" href="./style.css">
   <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
-  <style type="text/css">
-    .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-    }
-</style>
 </head>
 
 <body>
+  <div id='siteWelcome' class="site-welcome active">
+    <div class="loading"></div>
+  </div>
   <div id="topAnchor"></div>
   <div class="topNavBar">
     <div class="topNavBar-inner clearfix">
@@ -196,5 +191,9 @@
   <a class="top-button" href="#topAnchor">↑</a>
   
 </body>
-
+<script>
+  setTimeout(function(){
+    siteWelcome.classList.remove('active')
+  },1200)
+</script>
 </html>
