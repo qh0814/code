@@ -404,9 +404,9 @@ main{
   display:block;
   border:1px solid #9a9da2;
   border-radius:50%;
-  width:30px;
-  height: 30px;
-  font-size:2n0px;
+  width:45px;
+  height: 45px;
+  font-size:20px;
   color:#9a9da2;
   text-align: center;
   position:fixed;
@@ -414,8 +414,8 @@ main{
   bottom:5%;
 }
 .top-button:hover{
-  box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.2);
-  background-color: #DED4D4;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+  /* background-color: #DED4D4; */
   transition:box-shadow 0.2s
 }
 .icon {
@@ -423,6 +423,9 @@ main{
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+#toTop{
+  width:1.5em;height:2em;
 }
 .site-welcome{
   display:none;/*非active状态消失*/
