@@ -12,7 +12,7 @@
     <div class="loading"></div>
   </div>
   <div id="topAnchor"></div>
-  <div class="topNavBar">
+  <div id='topNavBar' class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="#" alt="logo" style="float: left;">
         <span class="rs">RS</span><span class="card">card</span>
@@ -25,11 +25,13 @@
           <li>
             <a href="#">技能</a>
           </li>
-          <li>
+          <li class="menuTigger">
             <a href="#">作品</a>
-          </li>
-          <li>
-            <a href="#">博客</a>
+            <ul class="submenu">
+              <li>canvas画板</li>
+              <li>定制导航页</li>
+              <li>作品3</li>
+            </ul>
           </li>
           <li>
             <a href="#">日历</a>
@@ -39,6 +41,14 @@
           </li>
           <li>
             <a href="#">其他</a>
+          </li>
+          <li class="menuTigger">
+            <a href="#">博客</a>
+            <ul class="submenu">
+              <li>http请求与响应</li>
+              <li>css布局及踩坑</li>
+              <li>原型与原型链</li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -194,6 +204,26 @@
 <script>
   setTimeout(function(){
     siteWelcome.classList.remove('active')
-  },1200)
+  },500)
+  window.onscroll = function(){
+    if(window.scrollY > 0)topNavBar.classList.add('sticky')
+    else topNavBar.classList.remove('sticky')
+  }
+  let tags = document.getElementsByClassName('menuTigger')
+  console.log(tags)  
+  for(let i=0; i<tags.length; i++){
+    tags[i].onmouseenter = function(x){
+      console.log(x.currentTarget)
+      x.currentTarget.classList.remove('default')
+      x.currentTarget.classList.add('active')
+      
+    }
+   tags[i].onmouseleave = function(x){
+    console.log(x.currentTarget)
+    x.currentTarget.classList.add('default')
+    x.currentTarget.classList.remove('active')
+    
+    } 
+  }
 </script>
 </html>
