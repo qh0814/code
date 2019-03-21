@@ -75,6 +75,17 @@ h1,h2,h3,h4,h5,h6{
   position: relative;
 }
 /*伪元素充当border，这样可以用动画了*/
+.topNavBar nav > ul > li.highLight > a::after {
+  content:'';
+  display:block;
+  position: absolute;
+  top:100%;
+  left:0;
+  width: 100%;
+  height:3px;
+  background-color:#e8676b;
+  animation: borderSlide 0.4s;
+}
 .topNavBar nav > ul > li.active > a::after {
   content:'';
   display:block;

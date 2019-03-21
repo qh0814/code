@@ -20,10 +20,10 @@
       </a>
       <nav style="float: right;">
         <ul class="clearfix">
-          <li>
+          <li class="menuTigger">
             <a href="#siteAbout">关于</a>
           </li>
-          <li>
+          <li class="menuTigger">
             <a href="#siteSkills">技能</a>
           </li>
           <li class="menuTigger">
@@ -34,17 +34,17 @@
               <li><a href="#" target="_blank">作品3</a></li>
             </ul>
           </li>
-          <li>
-            <a href="#siteAbout">日历</a>
-          </li>
-          <li>
-            <a href="#siteAbout">联系方式</a>
-          </li>
-          <li>
-            <a href="#siteAbout">其他</a>
+          <li class="menuTigger">
+            <a href="#siteAbout1">日历</a>
           </li>
           <li class="menuTigger">
-            <a href="#siteAbout">博客</a>
+            <a href="#siteAbout1">联系方式</a>
+          </li>
+          <li class="menuTigger">
+            <a href="#siteAbout1">其他</a>
+          </li>
+          <li class="menuTigger">
+            <a href="#siteAbout1">博客</a>
             <ul class="submenu">
               <li><a href="https://www.jianshu.com/p/578946f5c07a" target="_blank">http请求与响应</a></li>
               <li><a href="https://www.jianshu.com/p/080aa3c4cc03" target="_blank">css布局及踩坑</a></li>
@@ -59,7 +59,7 @@
     <div class="mask"></div>
   </div>
   <main>
-    <div class="userCard" id="siteAbout">
+    <div data-x class="userCard" id="siteAbout">
       <div class="pictureAndText clearfix">
         <div class="picture">
           <img src="./img/avatar-red.jpg" width=299 height=347 alt="头像">
@@ -110,7 +110,7 @@
     </p>
   </main>
   <section class="skills">
-    <h2 id="siteSkills">技能</h2>
+    <h2 data-x id="siteSkills">技能</h2>
     <ol class="clearfix">
       <li>
         <h3>
@@ -163,7 +163,7 @@
     </ol>
   </section>
   <section class="portfolio">
-    <h2 id="siteWorks">作品集</h2>
+    <h2 data-x id="siteWorks">作品集</h2>
     <nav>
       <ol class="clearfix">
         <li id="portfolio1">所有</li>
@@ -214,7 +214,31 @@
   window.onscroll = function () {
     if (window.scrollY > 0) topNavBar.classList.add('sticky')
     else topNavBar.classList.remove('sticky')
+    let specialTags = document.querySelectorAll('[data-x]')//遍历带有标记的标签
+    //console.log(specialTags)
+    let minIndex = 0
+    for(let i=1;i<specialTags.length;i++){//从被标记的标签里遍历
+      if(Math.abs(specialTags[i].offsetTop - window.scrollY) < 
+      Math.abs(specialTags[minIndex].offsetTop - window.scrollY))minIndex = i //获取到离当前高度最小的标签索引 
+    }
+    // console.log(minIndex)
+  // for(let i=0;i<specialTags.length;i++){
+  //   specialTags[i].classList.remove('active')//清空这些标签的active状态
+  // }  
+  specialTags[minIndex].classList.add('highLight')//最近的标签再增加active
+  // console.log(specialTags[minIndex])
+  let id = specialTags[minIndex].id
+  //console.log('a[href="#' + id + '"]')
+  let a = document.querySelector('a[href="#' + id + '"]')
+  let li = a.parentNode
+  let brothersAndMe = li.parentNode.children
+  for(let i=0;i<brothersAndMe.length;i++){
+    brothersAndMe[i].classList.remove('highLight')
   }
+  li.classList.add('highLight')
+  li.classList.remove('default')//避免.default的样式冲突
+}
+
   let navLi = document.getElementsByClassName('menuTigger')
   //console.log(navLi)  
   for (let i = 0; i < navLi.length; i++) {
