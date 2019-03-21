@@ -12,7 +12,6 @@
   <div id='siteWelcome' class="site-welcome active">
     <div class="loading"></div>
   </div>
-  <div id="topAnchor"></div>
   <div id='topNavBar' class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="#" alt="logo" style="float: left;">
@@ -199,7 +198,7 @@
       </div>
     </div>
   </section>
-  <a class="top-button" href="#topAnchor">
+  <a class="top-button" id="top-button">
     <svg class="icon" aria-hidden="true" id="toTop">
       <use xlink:href="#icon-top02"></use>
     </svg>
@@ -215,37 +214,40 @@
   let minIndex = 0
   for(let i=0;i<specialTags.length;i++){//从被标记的标签里遍历
   specialTags[i].classList.add('offset')
-  if(Math.abs(specialTags[i].offsetTop - window.scrollY) < 
-      Math.abs(specialTags[minIndex].offsetTop - window.scrollY))minIndex = i //获取到离当前高度最小的标签索引 
+  let x1 = Math.abs(specialTags[i].offsetTop - window.scrollY)
+  let x2 = Math.abs(specialTags[minIndex].offsetTop - window.scrollY)
+  if(x1 < x2){minIndex = i} //获取到离当前高度最小的标签索引 
   }
   setTimeout(function () {
   specialTags[minIndex].classList.remove('offset')
   }, 520)
 
   
-  
   window.onscroll = function () {
     if (window.scrollY > 0) topNavBar.classList.add('sticky')
     else topNavBar.classList.remove('sticky')
+    
     let specialTags = document.querySelectorAll('[data-x]')//遍历带有标记的标签
-    //console.log(specialTags)
+    // console.log(specialTags)
     let minIndex = 0
     for(let i=1;i<specialTags.length;i++){//从被标记的标签里遍历
-      if(Math.abs(specialTags[i].offsetTop - window.scrollY) < 
-      Math.abs(specialTags[minIndex].offsetTop - window.scrollY))minIndex = i //获取到离当前高度最小的标签索引 
+      let x1 = Math.abs(specialTags[i].offsetTop - window.scrollY)
+      let x2 = Math.abs(specialTags[minIndex].offsetTop - window.scrollY)
+      if(x1 < x2){minIndex = i} //获取到离当前高度最小的标签索引 
+      
     }
     // console.log(minIndex)
   // for(let i=0;i<specialTags.length;i++){
   //   specialTags[i].classList.remove('active')//清空这些标签的active状态
-  // }  
+  // } 
   specialTags[minIndex].classList.remove('offset')//最近的标签再增加active
-  console.log(specialTags[minIndex])
+  // console.log(specialTags[minIndex])
   let id = specialTags[minIndex].id
-  console.log(id)
-  console.log('a[href="#' + id + '"]')
+  // console.log(id)
+  // console.log('a[href="#' + id + '"]')
   let a = document.querySelector('a[href="#' + id + '"]')
   let li = a.parentNode
-  console.log(li)
+  // console.log(li)
   let brothersAndMe = li.parentNode.children
   for(let i=0;i<brothersAndMe.length;i++){
     brothersAndMe[i].classList.remove('highLight')
@@ -270,7 +272,7 @@
     }
   }
   let nav_li_a = document.querySelectorAll('nav>ul>li>a')
-  console.log(nav_li_a)
+  // console.log(nav_li_a)
   
   function animate() {
         requestAnimationFrame(animate);
@@ -312,7 +314,14 @@
       })
       .start();
   }
+
 } 
+topButton = document.getElementById('top-button')
+
+topButton.onclick = function(){
+  // console.log(topButton)
+  window.scrollTo(0,0)
+}
 </script>
 
 </html>
