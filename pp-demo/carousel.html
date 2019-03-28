@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .images{
+      display:flex;
+      align-items: flex-start;
+      border:1px solid red;
+    }
+    .window{
+      border:10px solid green;
+      width:300px;
+      overflow:hidden;
+    }
+    img{
+      width:300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="images" id='images'>
+      <img src="https://fthmb.tqn.com/0ui_Zw01Ht9NHJkSBlqOIC1IH44=/960x0/filters:no_upscale()/yorkshire-terrier-583788122-581630e85f9b581c0b018a00.jpg" alt="">
+      <img src="https://canna-pet.com/wp-content/uploads/2017/06/20-longest-living-dog-breeds_canna-pet-e1498599846169.jpg" alt="">
+      <img src="https://fthmb.tqn.com/0ui_Zw01Ht9NHJkSBlqOIC1IH44=/960x0/filters:no_upscale()/yorkshire-terrier-583788122-581630e85f9b581c0b018a00.jpg" alt="">
+    </div>
+  </div>
+  <button id="p1">第1张</button>
+  <button id="p2">第2张</button>
+  <button id="p3">第3张</button>
+</body>
+</html>
+<script>
+  $(p1).on('click',function(){
+    $(images).css({
+    transform:'translateX(0)'})
+  })
+  $(p2).on('click',function(){
+    $(images).css({
+    transform:'translateX(-300px)'})
+  })
+  $(p3).on('click',function(){
+    $(images).css({
+    transform:'translateX(-600px)'})
+  })
+
+</script>
