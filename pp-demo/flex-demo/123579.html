@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.box{
+  display:flex;
+  align-content:space-between;
+  flex-wrap:wrap;
+  width:300px;
+  height:300px;
+  border:3px solid #333;
+}
+.row{
+  display:flex;
+  flex-basis:100%;
+}
+.row:nth-child(3){
+  justify-content:space-between;
+}
+.row:nth-child(2){
+  justify-content:center;
+}
+.item{
+  width:100px;
+  height:100px;
+  line-height:100px;
+  text-align:center;}
+.item:nth-child(1){
+  background:green;
+}
+.item:nth-child(2){
+  background:red;
+}
+.item:nth-child(3){
+  background:yellow;
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <div class="box">
+     <div class="row">
+       <span class="item">1</span>
+       <span class="item">2</span>
+       <span class="item">3</span>
+     </div>
+      <div class="row">
+       <span class="item">5</span>
+     </div>
+     <div class="row">
+       <span class="item">7</span>
+       <span class="item">9</span>
+     </div>
+  </div>
+</body>
+</html>
