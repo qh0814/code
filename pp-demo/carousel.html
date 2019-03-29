@@ -25,6 +25,9 @@
       /* height:200px; */
       flex:0 0 300px;
     }
+    .red{
+  color: red;
+}
   </style>
 </head>
 <body>
@@ -34,25 +37,74 @@
       <img src="https://i.loli.net/2019/03/29/5c9e3d853921a.jpg" alt="" width=300 height=200>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd0630lj-H52RHqRMBIUhwR5kU3YSKOCpmT0rqA8521tet6a1n" alt="" width=300 height=200>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTR-_So1YvOntltgcJIOm3TSRAa_OjNwi0Axy6Fn-qrNefWiAjJA" alt="" width=300 height=200>
+      <img src="https://i.loli.net/2019/03/29/5c9e3d853921a.jpg" alt="" width=300 height=200>
     </div>
   </div>
-  <button id="p1">第1张</button>
-  <button id="p2">第2张</button>
-  <button id="p3">第3张</button>
+    <button id="p1">第1张</button>
+    <button id="p2">第2张</button>
+    <button id="p3">第3张</button>
+    <button id="p4">第4张</button>
 </body>
 </html>
 <script>
-  $(p1).on('click',function(){
-    $(images).css({
-    transform:'translateX(0)'})
-  })
-  $(p2).on('click',function(){
-    $(images).css({
-    transform:'translateX(-300px)'})
-  })
-  $(p3).on('click',function(){
-    $(images).css({
-    transform:'translateX(-600px)'})
-  })
+  // $(p1).on('click',function(){
+  //   $(images).css({
+  //   transform:'translateX(0)'})
+  // })
+  // $(p2).on('click',function(){
+  //   $(images).css({
+  //   transform:'translateX(-300px)'})
+  // })
+  // $(p3).on('click',function(){
+  //   $(images).css({
+  //   transform:'translateX(-600px)'})
+  // })
 
+  var allButtons = $('button')
+  //console.log(allButtons)
+  for (let i = 0; i < allButtons.length; i++) {
+  $(allButtons).on('click', function(x) {
+    var index = $(allButtons).index(this)
+    //console.log(index)
+    //console.log($(x.currentTarget))
+    var p = index * -300
+    $('#images').css({
+      transform: 'translate(' + p + 'px)'
+    })
+    n = index
+    activeButton(allButtons.eq(n))
+  })
+}
+
+
+var n = 0;
+var size = allButtons.length
+//console.log(n % size)
+allButtons.eq(n % size).trigger('click')
+
+
+var timerId = setTimer()
+
+function setTimer() {
+  return setInterval(() => {
+    n += 1
+    // console.log(n)
+    // console.log(n % size)
+    allButtons.eq(n % size).trigger('click')
+  }, 3000)
+}
+
+function activeButton($button) {
+  $button
+    .addClass('red')
+    .siblings('.red').removeClass('red')
+}
+
+$('.window').on('mouseenter', function() {
+  window.clearInterval(timerId)
+})
+
+$('.window').on('mouseleave', function() {
+  timerId = setTimer()
+})
 </script>
