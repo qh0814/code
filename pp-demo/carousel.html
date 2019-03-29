@@ -10,24 +10,30 @@
     .images{
       display:flex;
       align-items: flex-start;
-      border:1px solid red;
+      /* border:1px solid red; */
+      transition: all 0.5s;
+      /* flex-wrap:wrap; */
     }
     .window{
-      border:10px solid green;
+      /* border:10px solid green; */
       width:300px;
+      height:200px;
       overflow:hidden;
     }
     img{
-      width:300px;
+      /* width:300px; */
+      /* height:200px; */
+      flex:0 0 300px;
     }
   </style>
 </head>
 <body>
   <div class="window">
+    
     <div class="images" id='images'>
-      <img src="https://fthmb.tqn.com/0ui_Zw01Ht9NHJkSBlqOIC1IH44=/960x0/filters:no_upscale()/yorkshire-terrier-583788122-581630e85f9b581c0b018a00.jpg" alt="">
-      <img src="https://canna-pet.com/wp-content/uploads/2017/06/20-longest-living-dog-breeds_canna-pet-e1498599846169.jpg" alt="">
-      <img src="https://fthmb.tqn.com/0ui_Zw01Ht9NHJkSBlqOIC1IH44=/960x0/filters:no_upscale()/yorkshire-terrier-583788122-581630e85f9b581c0b018a00.jpg" alt="">
+      <img src="https://i.loli.net/2019/03/29/5c9e3d853921a.jpg" alt="" width=300 height=200>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd0630lj-H52RHqRMBIUhwR5kU3YSKOCpmT0rqA8521tet6a1n" alt="" width=300 height=200>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTR-_So1YvOntltgcJIOm3TSRAa_OjNwi0Axy6Fn-qrNefWiAjJA" alt="" width=300 height=200>
     </div>
   </div>
   <button id="p1">第1张</button>
