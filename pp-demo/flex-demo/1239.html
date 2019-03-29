@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: space-between;
+  width:300px;
+  height:300px;
+  border:1px solid red;
+}
+span{
+  background:black;
+  width:100px;
+  height:100px;
+  line-height:100px;
+  text-align:center;
+}
+span:nth-child(1) {
+  align-self: flex-end;
+  background:yellow;
+}
+span:nth-child(2) {
+  align-self: flex-end;
+  background:green;
+}
+span:nth-child(3) {
+  align-self: flex-end;
+  background:red;
+}
+span:nth-child(4) {
+  align-self: flex-end;
+  background:gray;
+}
+</style>
+</head>
+<body>
+  <div class="box">
+    <span class="items">1</span>
+    <span class="items">2</span>
+    <span class="items">3</span>
+    <span class="items">4</span>
+  </div>
+</body>
+</html>
