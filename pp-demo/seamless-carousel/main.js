@@ -7,7 +7,7 @@ $(document).ready(function(){
   //console.log('共有' + size + '个图片')
   $('li').first().addClass('active')
   //循环轮播事件
-  var i = 4
+  var i = 0
   var ID = setInterval(() => {
     i++
     move()
