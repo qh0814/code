@@ -12,7 +12,8 @@ $(document).ready(function(){
     i++
     move()
   },2000)
-// 悬停清除计时器，移除创建计时器
+
+  // 悬停清除计时器，移除创建计时器
 $('.slider-list').hover(() => {
   clearInterval(ID)
 },() =>{
