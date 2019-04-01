@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      /* height: 100%; */ 
+      display: flex;
+      justify-content:center;
+      /* align-items: flex-start; */
+    }
+  
+    body {
+      background: rgb(155, 150, 150);
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:whitesmoke;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-top {
+      height: 95%;
+      width: 100%;
+    }
+    .gallery-thumbs {
+      height: 27%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+    .api{
+      width:500px;
+      height:500px;
+      position: absolute;
+      top:10px;
+    }
+    .swiper-button-next ,.swiper-button-prev{
+      background: #5a5959;
+    }
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="api">
+    <div class="swiper-container gallery-top">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url(https://img14.360buyimg.com/n1/s450x450_jfs/t19960/20/1662777286/277967/615ccafb/5b4f0dd7Nf3eb96b8.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img10.360buyimg.com/n1/s450x450_jfs/t1/5198/2/3378/133714/5b997c0dE99ec5e54/20328c33bdc6917a.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img14.360buyimg.com/n1/s450x450_jfs/t1/2788/29/13683/138593/5bd8aae5E6190a434/b4c0df48e4bbcc4a.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img13.360buyimg.com/n1/s450x450_jfs/t1/22959/12/11650/309807/5c91f12dEbf255deb/f2e7346cf5700c03.jpg)"></div>
+        
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+    <div class="swiper-container gallery-thumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url(https://img14.360buyimg.com/n1/s450x450_jfs/t19960/20/1662777286/277967/615ccafb/5b4f0dd7Nf3eb96b8.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img10.360buyimg.com/n1/s450x450_jfs/t1/5198/2/3378/133714/5b997c0dE99ec5e54/20328c33bdc6917a.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img14.360buyimg.com/n1/s450x450_jfs/t1/2788/29/13683/138593/5bd8aae5E6190a434/b4c0df48e4bbcc4a.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(https://img13.360buyimg.com/n1/s450x450_jfs/t1/22959/12/11650/309807/5c91f12dEbf255deb/f2e7346cf5700c03.jpg)"></div>
+       
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      allowTouchMove:false,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+  </script>
+</body>
+</html>
