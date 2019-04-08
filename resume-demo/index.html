@@ -30,7 +30,7 @@
             <ul class="submenu">
               <li><a href="https://qh0814.github.io/code/canvas-demo/" target="_blank">canvas画板</a></li>
               <li><a href="https://qh0814.github.io/code/nav-demo/" target="_blank">定制导航页</a></li>
-              <li><a href="#" target="_blank">作品3</a></li>
+              <li><a href="#" target="_blank">在线简历</a></li>
             </ul>
           </li>
           <li class="menuTigger">
@@ -61,7 +61,7 @@
     <div data-x class="userCard" id="siteAbout">
       <div class="pictureAndText clearfix">
         <div class="picture">
-          <img src="./img/avatar-red.jpg" width=299 height=347 alt="头像">
+          <img src="./img/avatar-01.jpeg" width=299 height=347 alt="头像">
         </div>
         <div class="text">
           <span class="welcome">Hello
@@ -228,7 +228,6 @@
     else topNavBar.classList.remove('sticky')
     
     let specialTags = document.querySelectorAll('[data-x]')//遍历带有标记的标签
-    // console.log(specialTags)
     let minIndex = 0
     for(let i=1;i<specialTags.length;i++){//从被标记的标签里遍历
       let x1 = Math.abs(specialTags[i].offsetTop - window.scrollY)
@@ -236,15 +235,8 @@
       if(x1 < x2){minIndex = i} //获取到离当前高度最小的标签索引 
       
     }
-    // console.log(minIndex)
-  // for(let i=0;i<specialTags.length;i++){
-  //   specialTags[i].classList.remove('active')//清空这些标签的active状态
-  // } 
   specialTags[minIndex].classList.remove('offset')//最近的标签再增加active
-  // console.log(specialTags[minIndex])
   let id = specialTags[minIndex].id
-  // console.log(id)
-  // console.log('a[href="#' + id + '"]')
   let a = document.querySelector('a[href="#' + id + '"]')
   let li = a.parentNode
   // console.log(li)
@@ -257,22 +249,18 @@
 }
 
   let navLi = document.getElementsByClassName('menuTigger')
-  //console.log(navLi)  
   for (let i = 0; i < navLi.length; i++) {
     navLi[i].onmouseenter = function (x) {
-      //console.log(x.currentTarget)
       x.currentTarget.classList.remove('default')
       x.currentTarget.classList.add('active')
 
     }
     navLi[i].onmouseleave = function (x) {
-      //console.log(x.currentTarget)
       x.currentTarget.classList.add('default')
       x.currentTarget.classList.remove('active')
     }
   }
   let nav_li_a = document.querySelectorAll('nav>ul>li>a')
-  // console.log(nav_li_a)
   
   function animate() {
         requestAnimationFrame(animate);
@@ -285,25 +273,10 @@
       
     let a = x.currentTarget
     let href = a.getAttribute('href')
-    //console.log(href)
     let element = document.querySelector(href)
-    //console.log(element)
     let targetTop = element.offsetTop //相对顶部的绝对位置
-    // let totalScroll = 20 //动画次数
-    // let frequency = 500 / totalScroll //动画频率，预期500ms完成
     let currentY = window.scrollY //当前位置
     let targetY = targetTop - 80 //最终位置
-    // let distance = (targetY - currentY) / totalScroll //每次移动距离
-    // let i = 0
-    // let id = setInterval(() => {
-    //   if (i === totalScroll) {
-    //     window.clearInterval(id)
-    //     return
-    //   } else {
-    //     i = i + 1
-    //     window.scrollTo(0, currentY + distance * i)
-    //   }
-    // }, frequency)
 
     var coors = {y:currentY}
     var tween = new TWEEN.Tween(coors) 
@@ -319,7 +292,6 @@
 topButton = document.getElementById('top-button')
 
 topButton.onclick = function(){
-  // console.log(topButton)
   window.scrollTo(0,0)
 }
 </script>
