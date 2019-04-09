@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
   <script src="//at.alicdn.com/t/font_879825_t1c8vga5emo.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.12.0/dist/av-min.js"></script>
+  
 </head>
 
 <body>
@@ -174,6 +176,7 @@
         </div>
       </div>
     </nav>
+    
     <script>
       portfolio1.onclick = function () {
         portfolioBar.className = 'bar state-1'
@@ -203,9 +206,14 @@
       <use xlink:href="#icon-top02"></use>
     </svg>
   </a>
-
+  <h2>留言</h2>
+  <form action="" id="postMessageForm">
+    <input type="text" name="content">
+    <input type="submit" value="提交留言">
+  </form>  
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
+<script src="./lean.js"></script>
 <script>
   setTimeout(function () {
     siteWelcome.classList.remove('active')
