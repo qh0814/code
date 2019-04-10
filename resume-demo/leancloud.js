@@ -14,18 +14,41 @@ AV.init({
 //   //alert('LeanCloud Rocks!');
 // })
 
+var query = new AV.Query('message');
+  query.find().then(function (message) {
+  //  console.log(message)
+   let array = message.map((item) => item.attributes)
+  //  console.log(array[1].content)
+   array.forEach((item)=>{
+     let li = document.createElement('li')
+     li.innerText = `${item.visitor}: ${item.content}`
+     let messageList = document.querySelector('#messageList ol')
+     messageList.appendChild(li)
+   })
+  },(error)=>{
+    console.log(error)
+  })
+
 let myform = document.querySelector('#postMessageForm')
 console.log(myform)
 myform.addEventListener('submit',function(e){
   e.preventDefault()
-  let content = myform.querySelector('input[name=content]').value 
+  let content = myform.querySelector('input[name=content]').value
+  let visitor = myform.querySelector('input[name=visitor]').value 
   // console.log(content)
   var Message = AV.Object.extend('message')
   var message = new Message()
   message.save({
-    content:content
+    content:content,
+    visitor:visitor
   }).then(function(object){
-    alert('存入成功')
+    alert('留言成功')
     console.log(object)
+    let li = document.createElement('li')
+    li.innerText = `${object.attributes.visitor}: ${object.attributes.content}`
+    let messageList = document.querySelector('#messageList ol')
+    messageList.appendChild(li)
+    myform.querySelector('input[name=content]').value=''
+    myform.querySelector('input[name=visitor]').value=''
   })
 })

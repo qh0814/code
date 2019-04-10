@@ -206,14 +206,23 @@
       <use xlink:href="#icon-top02"></use>
     </svg>
   </a>
-  <h2>留言</h2>
-  <form action="" id="postMessageForm">
-    <input type="text" name="content">
-    <input type="submit" value="提交留言">
-  </form>  
+  <h2 style="text-align:center;">留言</h2>
+  <section id="messageList">
+      <ol></ol>
+      <form action="" id="postMessageForm">
+        <label for="">
+          姓名<input type="text" name="visitor">
+        </label>
+        <label for="">
+          内容<input type="text" name="content">
+        </label>
+        <input type="submit" value="提交留言">
+      </form>
+  </section>
+  
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
-<script src="./lean.js"></script>
+<script src="./leancloud.js"></script>
 <script>
   setTimeout(function () {
     siteWelcome.classList.remove('active')
@@ -299,7 +308,15 @@
 topButton = document.getElementById('top-button')
 
 topButton.onclick = function(){
-  window.scrollTo(0,0)
+  // window.scrollTo(0,0)
+  let coors = {y:window.scrollY}
+    let tween = new TWEEN.Tween(coors) 
+      .to({y: 0}, 1000) 
+      .easing(TWEEN.Easing.Cubic.InOut) 
+      .onUpdate(function () { 
+        window.scrollTo(0, coors.y)
+      })
+      .start();
 }
 </script>
 

@@ -495,3 +495,23 @@ section.skills.offset .progress{
     width:100px;height:100px;opacity:0;
   }
 }
+#messageList{
+  display: flex;
+  flex-direction: column;
+  max-width:800px;
+  /* align-items: center; */
+  margin-left:auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+#messageList li{
+  max-width:800px;
+  padding:15px;
+  border-bottom:1px solid #ddd;
+}
+#postMessageForm{
+  margin:15px auto 15px 0;
+}
+#postMessageForm label{
+  margin:0 10px;
+}
