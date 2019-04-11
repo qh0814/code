@@ -33,9 +33,12 @@ let myform = document.querySelector('#postMessageForm')
 console.log(myform)
 myform.addEventListener('submit',function(e){
   e.preventDefault()
-  let content = myform.querySelector('input[name=content]').value
-  let visitor = myform.querySelector('input[name=visitor]').value 
-  // console.log(content)
+  let content = myform.querySelector('input[name=content]').value.trim()
+  let visitor = myform.querySelector('input[name=visitor]').value.trim() 
+  if(content ==='' || visitor === ''){
+    alert('姓名或留言不能为空')
+    return}
+  console.log(visitor,content)
   var Message = AV.Object.extend('message')
   var message = new Message()
   message.save({
