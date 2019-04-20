@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./index.scss */ \"./src/index.scss\")\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n\nvar fn = function fn() {\n  console.log('this is fn');\n};\n\nfn();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
