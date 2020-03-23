@@ -2,20 +2,20 @@
     margin:0;
     padding:0;
 }
-.topNavBar{
+.topNavBar ul{
     margin-right: 15px;
-    
+    float: right;
+}
+.topNavBar:after{
+    clear: both;
+    display: block;
+    content: '';
 }
 .topNavBar ul li{
     float:left;
     list-style: none;
     margin-left: 20px;
 
-}
-.topNavBar .clearfix{
-    clear:both;
-    float: right;
-    
 }
 .topNavBar{
     margin-top: 20px;
@@ -63,6 +63,68 @@
     color: #fff;
     font-size: 13px;
     cursor: default;
-    padding: 3px;
+    padding: 3px;   
+}
+#logo img{
+    width: 270px;
+    height: 129px;
     
+}
+#logo{
+    margin: 0 auto;
+    width: 270px;
+}
+#searchFrame{
+    width: 526px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    border: 0;
+    margin:6px 0 0 7px;
+    outline: none;
+}
+
+#searchButton{
+    width:100px;
+    height: 36px;
+    background-color: #3385ff;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    outline: medium;
+    letter-spacing: 1px;
+    -webkit-appearance: none;
+    border:0;
+}
+.main .clearfix:after{
+    clear: both;
+    content: '';
+    display: block;
+}
+.main .clearfix{
+    position: relative;
+}
+#mainWraper{
+    width: 642px;
+    margin: 0 auto;
+}
+.search-icon{
+    position: absolute;
+    right: 110px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;    
+}
+.main form{
+    
+    width: 642px;
+}
+.searchWraper{
+    float: left;
+}
+#searchWraperID{
+    border: 1px solid #b6b6b6;
+    border-right-width: 0px;
+    width: 539px;
+    height: 34px;
 }
