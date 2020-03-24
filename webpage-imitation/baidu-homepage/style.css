@@ -3,7 +3,7 @@
     padding:0;
 }
 .topNavBar ul{
-    margin-right: 15px;
+    margin-right: 12px;
     float: right;
 }
 .topNavBar:after{
@@ -46,7 +46,7 @@
     position: relative;
     margin-left: -20px;
 }
-.topNavBar #activity:after{
+.topNavBar #activity:after{/*伪元素作为红点*/
     content: '';
     display: block;
     width: 6px;
@@ -68,7 +68,7 @@
 #logo img{
     width: 270px;
     height: 129px;
-    
+    margin-bottom: 6px;
 }
 #logo{
     margin: 0 auto;
@@ -80,8 +80,8 @@
     line-height: 22px;
     font-size: 16px;
     border: 0;
-    margin:6px 0 0 7px;
-    outline: none;
+    margin:6px 0 0 7px;/*input需要特殊定位才能让光标看起来不在最前面，看到的搜索框其实是input的父元素*/
+    outline: none;/*消除input自带的轮廓，好让父元素的边框看起来是搜索框*/
 }
 
 #searchButton{
@@ -91,10 +91,8 @@
     font-size: 15px;
     color: #fff;
     cursor: pointer;
-    outline: medium;
     letter-spacing: 1px;
-    -webkit-appearance: none;
-    border:0;
+    border:0;/*消除button自带的边框*/
 }
 .main .clearfix:after{
     clear: both;
@@ -106,17 +104,23 @@
 }
 #mainWraper{
     width: 642px;
-    margin: 0 auto;
+    margin: 25px auto 431px auto;
 }
 .search-icon{
     position: absolute;
     right: 110px;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    cursor: pointer;    
+    top:50%;/*相对父元素的高度*/
+    margin-top: -8px;
+    cursor: pointer;
+    background-image: url(./camera.png);
+    width: 18px;
+    height: 16px;
+    background-color: #fff;
 }
-.main form{
-    
+.search-icon:hover{
+    background-position: 0 -20px;/*雪碧图用法*/
+}
+.main form{   
     width: 642px;
 }
 .searchWraper{
@@ -127,4 +131,69 @@
     border-right-width: 0px;
     width: 539px;
     height: 34px;
+}
+.QRcode img{
+    border: 1px solid #f3f3f3;
+    padding: 6px;
+}
+.QRcode .QR-title{
+    color: #333;
+    font-size: 16px;
+    letter-spacing: 3px;
+    
+}
+.QRcode .QR-sub-title{
+    color:#999;
+    font-size: 14px;
+    font-weight: 300;
+}
+.QRcode{
+    text-align: center;
+    margin-top: -100px;
+}
+.footer{
+    position:fixed;
+    color:#999;
+    height: 40px;
+    line-height: 40px;
+    bottom:0;
+    left:0;
+    background-color: #fafafa;
+    width: 100%;
+}
+.footer:after{
+    clear: both;
+    content: '';
+    display: block;
+}
+.footer-left{
+    float: left;
+}
+.footer-left p{
+    float: left;
+    margin-left: 20px;
+}
+.footer-right{
+    float: right;
+    color: #bbb;
+    font-size: 12px;
+    font-family: arial;
+}
+.footer-right a{
+    color:#bbb;
+    text-decoration: none;
+}
+.footer-right a:hover{
+    color: #333;
+}
+.footer-left a{
+    font-size: 12px;
+    text-decoration: none;
+    color: #999;
+}
+.footer-left a:hover{
+    color: #333;
+}
+.footer-right span,.footer-right a{
+    margin-right: 20px;
 }
