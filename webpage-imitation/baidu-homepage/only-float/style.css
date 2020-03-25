@@ -2,6 +2,10 @@
     margin:0;
     padding:0;
 }
+body{
+    min-width: 1250px;/*设置body最小宽度，防止浏览器窗口变窄时布局发生改变
+    当窗口宽度低于1250px时布局才会发生变化*/
+}
 .topNavBar ul{
     margin-right: 12px;
     float: right;
@@ -19,6 +23,7 @@
 }
 .topNavBar{
     margin-top: 20px;
+    margin-bottom: 35px;
 }
 .topNavBar .navLink{
     font-family: arial;
@@ -64,6 +69,9 @@
     font-size: 13px;
     cursor: default;
     padding: 3px;   
+}
+.main {
+    width: 100%;
 }
 #logo img{
     width: 270px;
@@ -159,7 +167,8 @@
     bottom:0;
     left:0;
     background-color: #fafafa;
-    width: 100%;
+    width: 100%;/*当块级元素被设置固定定位时，宽度由子元素宽度之和决定，不再是100%。
+    这里footer需要独占一行，所以需要加width:100% */
 }
 .footer:after{
     clear: both;
