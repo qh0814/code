@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-width: 1250px;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+nav ul{
+    display: flex;
+    margin-right: 12px;    
+    position: relative;
+}
+nav li{
+    list-style: none;
+    margin-left: 20px;
+}
+nav a{
+    text-decoration: underline;
+    font-family: arial;
+    color: #333;
+    font-weight: 700;
+    font-size: 13px;
+}
+nav #activity:after{
+    content: '';
+    border-radius: 50%;
+    position:absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #F23F40;
+    top:3px;
+}
+#activity{
+    color: #F23F40;
+}
+#login,#setting{
+    color:rgb(51,51,51);
+    font-weight: 400;
+}
+#more{
+    background-color: #38f;
+    color: #fff;
+    text-decoration: none;
+    cursor: default;
+    padding:3px;
+    font-weight: 400;
+}
+nav a:hover,nav #activity:hover{
+    color: rgb(0, 0, 204);
+}
+nav #login:hover,nav #setting:hover{
+    color: rgb(0, 0, 204);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+}
+main #searchWraper{
+    display: flex;
+    justify-content: center;
+    width:642px;
+    height:34px;
+}
+main img{
+    width:270px;
+    height:129px;
+    margin-bottom:6px;
+}
+#searchFrame{
+    flex-basis: 526px;
+    border:1px solid #b6b6b6;
+    border-right: 0;
+    display: flex;
+    
+}
+#searchFrame input{
+    width: 100%;
+    height:22px;
+    border: 0;
+    outline: none;
+    margin:6px 0 0 7px;
+    font-size: 16px;
+    
+}
+#searchButton{
+    width:100px;
+    background-color: #3385ff;
+    color:#fff;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border:0;
+    font-size: 15px;
+}
+#searchIcon{
+    background-image: url(./camera.png);
+    cursor: pointer;
+    width: 19px;
+    height: 16px;
+    display: block;
+    position:relative;
+    top: 50%;
+    margin-top: -8px;
+    margin-right:12px;
+}
+#searchIcon:hover{
+    background-position: 0 -20px;
+}
+#QRcode{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 367px;
+}
+#QRcode img{
+    border: 1px solid #f3f3f3;
+    padding: 6px;
+    width:106px;
+    height:106px;
+}
+#QR-title{
+    color: #333;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+#QR-sub-title{
+    color:#999;
+    font-size: 14px;
+    font-weight: 300;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    width:100%;
+    font-size: 12px;
+}
+#footer-left ul{
+    display: flex;
+    list-style: none;
+}
+#footer-left ul li a{
+    margin-left: 20px;
+    color:#999;
+    text-decoration: none;
+}
+#footer-left ul li a:hover{
+    color:#333;
+}
+#footer-right{
+    font-family: Arial;
+}
+#footer-right span,#footer-right a{
+    margin-right: 20px;
+    color:#bbb;
+    text-decoration: none;
+}
+
