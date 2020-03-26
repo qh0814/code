@@ -134,15 +134,19 @@ main img{
     font-size: 14px;
     font-weight: 300;
 }
+
 footer{
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    bottom: 0;
     height: 40px;
     line-height: 40px;
+    position: fixed;
+    bottom: 0;
+    left:0;
     width:100%;
     font-size: 12px;
+    min-width: 1250px;/*块级元素当被绝对定位或flex时，默认的min-width不再受到父元素的影响，
+    所以只在body上设置min-width是没用的*/
 }
 #footer-left ul{
     display: flex;
