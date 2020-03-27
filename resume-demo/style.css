@@ -236,6 +236,15 @@ h1,h2,h3,h4,h5,h6{
 .userCard .pictureAndText {
   padding: 50px;
 }
+.userCard dl{
+  line-height: 23px;
+}
+.userCard dl:after{
+  clear: both;
+  content: '';
+  display: block;
+  
+}
 .userCard dl dt,
 .userCard dl dd{
   float: left;
